@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+    db:
+        image: mongo:3.4
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: adminpwd
+            MONGO_INITDB_DATABASE: admin
+        command: mongod --auth
+        ports:
+            - 27017:27017
+        volumes:
+            - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+#            - ./data/:/data/db
+#    app:
+#        image: softyskin/backend:latest
+#        container_name: backend
+#        restart: always
+#        depends_on:
+#           - db
+#        environment:
+#           DIY_IP: 0.0.0.0
+#           PORT: 8080
+#           APP_NAME: softyskin
+#           MONGODB_DB_HOST: db
+#           MONGODB_DB_PORT: 27017
+#           MONGODB_DB_USERNAME: softyskin
+#           MONGODB_DB_PASSWORD: password
+#        ports:
+#            - 8080:8080
