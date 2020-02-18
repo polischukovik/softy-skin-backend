@@ -7,8 +7,8 @@ services:
         restart: always
         environment:
             MONGO_INITDB_ROOT_USERNAME: admin
-            MONGO_INITDB_ROOT_PASSWORD: adminpwd
-            MONGO_INITDB_DATABASE: admin
+            MONGO_INITDB_ROOT_PASSWORD: pwd
+            MONGO_INITDB_DATABASE: softyskin
         command: mongod --auth
         ports:
             - 27017:27017
