@@ -9,28 +9,38 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "orders")
 public class Order {
 	@Id
-	public String id;
+	private String _id;
 	
-	public LocalDateTime submitedDate;
+	private String uuid;
 	
-	public String customerName;
+	private LocalDateTime submitedDate;
 	
-	public String phone;
+	private String customerName;
 	
-	public String city;
+	private String phone;
 	
-	public String outlet;
+	private String city;
 	
-	public List<Product> products;
+	private String outlet;
 	
-	public OrderStatus status;
+	private List<Product> products;
+	
+	private OrderStatus status;
 
-	public String getId() {
-		return id;
+	private String get_id() {
+		return _id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public LocalDateTime getSubmitedDate() {

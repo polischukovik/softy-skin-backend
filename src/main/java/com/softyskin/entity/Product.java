@@ -7,7 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "products")
 public class Product {
 	@Id
-	private String id;
+	private String _id;
+	
+	private String uuid;
 	
 	private String name;
 	
@@ -20,13 +22,21 @@ public class Product {
 	private Integer position;
 	
 	private Binary image;
-	
-	public String getId() {
-		return id;
+
+	public String get_id() {
+		return _id;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void set_id(String _id) {
+		this._id = _id;
+	}
+	
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getName() {
@@ -79,7 +89,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", size=" + size + "]";
+		return "Product [id=" + uuid + ", name=" + name + ", size=" + size + "]";
 	}
 	
 }
