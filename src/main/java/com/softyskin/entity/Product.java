@@ -1,5 +1,7 @@
 package com.softyskin.entity;
 
+import java.util.Base64;
+
 import org.bson.types.Binary;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -73,12 +75,13 @@ public class Product {
 		this.position = position;
 	}
 
-	public Binary getImage() {
-		return image;
+	public String getImage() {
+		return new String(image.getData());
 	}
 
-	public void setImage(Binary image) {
-		this.image = image;
+	public void setImage(String image) {
+		this.image = new Binary(image.getBytes());
+//		this.image = image;
 	}
 
 	@Override
